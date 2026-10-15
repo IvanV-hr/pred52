@@ -2,7 +2,7 @@ import { Header } from "./components/Header.jsx";
 import { Footer } from "./components/Footer.jsx";
 import { useState } from "react";
 import NoviIzlet from "./components/NoviIzlet.jsx";
-import Izleti from "./components/Izleti.jsx";
+import PopisIzleta from "./components/PopisIzleta.jsx";
 
 const pocetniIzleti = [
   {
@@ -68,13 +68,29 @@ export default function App() {
     setIzleti([...izleti, izlet]);
   }
 
+  function ukloniIzlet(id) {
+    setIzleti(izleti.filter((izlet) => izlet.id !== id));
+  }
+
+  function promjeniStanjePosjecenosti(id) {
+    setIzleti(
+      izleti.map((izlet) =>
+        izlet.id === id ? { ...izlet, posjecen: !izlet.posjecen } : izlet,
+      ),
+    );
+  }
+
   return (
     <>
       <Header naslov="Izleti" />
       <main id="glavni-sadrzaj">
         <h1>Plan izleta po Hrvatskoj</h1>
         <NoviIzlet onDodaj={dodajIzlet} />
-        <Izleti izleti={izleti} />
+        <PopisIzleta
+          onUkloni={ukloniIzlet}
+          onPromjeni={promjeniStanjePosjecenosti}
+          izleti={izleti}
+        />
       </main>
       <Footer naslov="Izleti" />
     </>

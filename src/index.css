@@ -269,3 +269,32 @@ footer {
   margin-bottom: 0.8rem;
   flex-wrap: wrap;
 }
+
+.lista-izleta {
+  padding: 0;
+  list-style: none;
+}
+
+.izlet {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  flex-wrap: wrap;
+  border-bottom: 1px solid black;
+}
+
+.izlet-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.oznaka-regije {
+  border: 1px solid black;
+  padding: 0.1rem;
+}
+
+.izlet-opis {
+  margin: 0;
+}

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import PotvrdniOkvir from "./PotvrdniOkvir";
+import Izlet from "./Izlet";
 
-const Izleti = ({ izleti }) => {
+const PopisIzleta = ({ izleti, onUkloni, onPromjeni }) => {
   const [samoUzMore, setSamoUzMore] = useState(false);
   const [samoBesplatni, setSamoBesplatni] = useState(false);
   const [sakrijPosjecene, setSakrijPosjecene] = useState(false);
@@ -42,15 +43,22 @@ const Izleti = ({ izleti }) => {
           onPromjena={setSakrijPosjecene}
         />
       </div>
-       <p>Prikazano izleta: {filtriraniIzleti.length} od {izleti.length}</p>
+      <p>
+        Prikazano izleta: {filtriraniIzleti.length} od {izleti.length}
+      </p>
       {filtriraniIzleti.length === 0 && <p>Nema izleta za prikaz.</p>}
-      <ul>
+      <ul className="lista-izleta">
         {filtriraniIzleti.map((izlet) => (
-          <li key={izlet.id}>{izlet.naziv}</li>
+          <Izlet
+            key={izlet.id}
+            izlet={izlet}
+            onPromjeni={onPromjeni}
+            onUkloni={onUkloni}
+          />
         ))}
       </ul>
     </section>
   );
 };
 
-export default Izleti;
+export default PopisIzleta;
