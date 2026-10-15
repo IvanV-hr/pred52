@@ -1,5 +1,8 @@
 import { Header } from "./components/Header.jsx";
 import { Footer } from "./components/Footer.jsx";
+import { useState } from "react";
+import NoviIzlet from "./components/NoviIzlet.jsx";
+import Izleti from "./components/Izleti.jsx";
 
 const pocetniIzleti = [
   {
@@ -59,11 +62,19 @@ const pocetniIzleti = [
 ];
 
 export default function App() {
+  const [izleti, setIzleti] = useState(pocetniIzleti);
+
+  function dodajIzlet(izlet) {
+    setIzleti([...izleti, izlet]);
+  }
+
   return (
     <>
       <Header naslov="Izleti" />
       <main id="glavni-sadrzaj">
         <h1>Plan izleta po Hrvatskoj</h1>
+        <NoviIzlet onDodaj={dodajIzlet} />
+        <Izleti izleti={izleti} />
       </main>
       <Footer naslov="Izleti" />
     </>
