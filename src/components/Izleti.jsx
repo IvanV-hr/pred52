@@ -42,6 +42,8 @@ const Izleti = ({ izleti }) => {
           onPromjena={setSakrijPosjecene}
         />
       </div>
+       <p>Prikazano izleta: {filtriraniIzleti.length} od {izleti.length}</p>
+      {filtriraniIzleti.length === 0 && <p>Nema izleta za prikaz.</p>}
       <ul>
         {filtriraniIzleti.map((izlet) => (
           <li key={izlet.id}>{izlet.naziv}</li>
