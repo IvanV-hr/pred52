@@ -37,7 +37,7 @@ const Izleti = ({ izleti }) => {
           onPromjena={setSamoBesplatni}
         />
         <PotvrdniOkvir
-          oznaka="Sakrij postojece"
+          oznaka="Sakrij posjecene"
           ukljucen={sakrijPosjecene}
           onPromjena={setSakrijPosjecene}
         />
